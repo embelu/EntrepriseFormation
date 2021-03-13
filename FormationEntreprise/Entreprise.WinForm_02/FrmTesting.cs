@@ -37,9 +37,22 @@ namespace Entreprise.WinForm_02
                 MessageBox.Show(item.Id + " " + item.Nom + " " + item.Prenom + " " + item.Age + " " + item.Salaire());
             }
 
+
+
             MessageBox.Show("Tri via class TravailleurComparator (Age Desc) : ");
             TravailleurComparator.SortByAgeDesc myCompA = new TravailleurComparator.SortByAgeDesc();
             _societe.travailleurs.Sort(myCompA);
+
+            foreach (var item in _societe.travailleurs)
+            {
+                MessageBox.Show(item.Id + " " + item.Nom + " " + item.Prenom + " " + item.Age + " " + item.Salaire());
+            }
+
+
+
+            MessageBox.Show("Tri via class TravailleurComparator (Age et Name Desc) : ");
+            TravailleurComparator.SortByAgeAndNameDesc myCompB = new TravailleurComparator.SortByAgeAndNameDesc();
+            _societe.travailleurs.Sort(myCompB);
 
             foreach (var item in _societe.travailleurs)
             {
