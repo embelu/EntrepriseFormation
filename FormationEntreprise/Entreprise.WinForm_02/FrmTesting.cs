@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entreprise.Comparator;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -31,6 +32,15 @@ namespace Entreprise.WinForm_02
             _societe.AddTravailleur(7, "Vanbelle", "Laurent", 15, 700);
 
             MessageBox.Show("Contenu de la liste :");
+            foreach (var item in _societe.travailleurs)
+            {
+                MessageBox.Show(item.Id + " " + item.Nom + " " + item.Prenom + " " + item.Age + " " + item.Salaire());
+            }
+
+            MessageBox.Show("Tri via class TravailleurComparator (Age Desc) : ");
+            TravailleurComparator.SortByAgeDesc myCompA = new TravailleurComparator.SortByAgeDesc();
+            _societe.travailleurs.Sort(myCompA);
+
             foreach (var item in _societe.travailleurs)
             {
                 MessageBox.Show(item.Id + " " + item.Nom + " " + item.Prenom + " " + item.Age + " " + item.Salaire());
