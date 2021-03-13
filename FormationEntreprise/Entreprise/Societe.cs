@@ -26,15 +26,15 @@ namespace Entreprise
         }
         #endregion
 
-        public void AddTravailleur(int id, string nom, string prenom, int age, int fixe)
+        public void AddTravailleur(int id, string nom, string prenom, int age, string email, int fixe)
         {
-            Employe employe = new Employe(id, nom, prenom, age, fixe);
+            Employe employe = new Employe(id, nom, prenom, age, email, fixe);
             travailleurs.Add(employe);
         }
 
-        public void AddTravailleur(int id, string nom, string prenom, int age, int nbrHeure, int prixHeure)
+        public void AddTravailleur(int id, string nom, string prenom, int age, string email, int nbrHeure, int prixHeure)
         {
-            Ouvrier ouvrier = new Ouvrier(id, nom, prenom, age, nbrHeure, prixHeure);
+            Ouvrier ouvrier = new Ouvrier(id, nom, prenom, age, email, nbrHeure, prixHeure);
             travailleurs.Add(ouvrier);
         }
 

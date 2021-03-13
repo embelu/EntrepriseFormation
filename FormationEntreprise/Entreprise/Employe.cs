@@ -8,7 +8,7 @@ namespace Entreprise
     {
         private int Fixe { get; set; }
 
-        internal Employe(int id, string nom, string prenom, int age, int fixe) : base(id, nom, prenom, age)
+        internal Employe(int id, string nom, string prenom, int age, string email, int fixe) : base(id, nom, prenom, age, email)
         {
             this.Fixe = fixe;
         }
@@ -20,7 +20,7 @@ namespace Entreprise
 
         public string ShowDetails()
         {
-            return this.Id + " - " + this.Nom + " - " + this.Prenom + " - " + this.Age + " - " + this.Salaire();
+            return this.Id + " - " + this.Nom + " - " + this.Prenom + " - " + this.Age + " - " + this.Email + " - " + this.Salaire();
         }
     }
 

@@ -9,7 +9,7 @@ namespace Entreprise
         private int NbrH { get; set; }
         private int PrixH { get; set; }
 
-        internal Ouvrier(int id, string nom, string prenom, int age, int nbrH, int prixH) : base(id, nom, prenom, age)
+        internal Ouvrier(int id, string nom, string prenom, int age, string email, int nbrH, int prixH) : base(id, nom, prenom, age, email)
         {
             this.NbrH = nbrH;
             this.PrixH = prixH;
@@ -23,7 +23,7 @@ namespace Entreprise
 
         public string ShowDetails()
         {
-            return this.Id + " - " + this.Nom + " - " + this.Prenom + " - " + this.Age + " - " + this.Salaire();
+            return this.Id + " - " + this.Nom + " - " + this.Prenom + " - " + this.Age + " - " + this.Email + " - " + this.Salaire();
         }
     }
 }

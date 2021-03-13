@@ -21,7 +21,7 @@ namespace Entreprise.WinForm_02
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            _societe.AddTravailleur(Int32.Parse(TBoxId.Text), TBoxNom.Text, TBoxPrenom.Text, Int32.Parse(TBoxAge.Text), Int32.Parse(TBoxSalaire.Text));
+            _societe.AddTravailleur(Int32.Parse(TBoxId.Text), TBoxNom.Text, TBoxPrenom.Text, Int32.Parse(TBoxAge.Text),TBoxEmail.Text, Int32.Parse(TBoxSalaire.Text));
             this.Close();
         }
 

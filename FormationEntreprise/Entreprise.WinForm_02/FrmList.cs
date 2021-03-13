@@ -22,7 +22,7 @@ namespace Entreprise.WinForm_02
 
             foreach (Travailleur item in Societe.CreerSociete())
             {
-                ListView.Items.Add(string.Format("{00}", item.Id.ToString()) + ' ' + item.Nom + ' ' + item.Prenom + ' ' + item.Age.ToString() + ' ' + item.Salaire().ToString());
+                ListView.Items.Add(string.Format("{00}", item.Id.ToString()) + ' ' + item.Nom + ' ' + item.Prenom + ' ' + item.Age.ToString() + ' ' + item.Salaire().ToString() + " " + item.Email);
             }
 
         }

@@ -43,6 +43,8 @@ namespace Entreprise.WinForm_02
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.TBoxEmail = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // TBoxTauxH
@@ -161,11 +163,29 @@ namespace Entreprise.WinForm_02
             this.label1.TabIndex = 26;
             this.label1.Text = "Id : ";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(180, 324);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(50, 17);
+            this.label7.TabIndex = 40;
+            this.label7.Text = "Email :";
+            // 
+            // TBoxEmail
+            // 
+            this.TBoxEmail.Location = new System.Drawing.Point(260, 324);
+            this.TBoxEmail.Name = "TBoxEmail";
+            this.TBoxEmail.Size = new System.Drawing.Size(219, 22);
+            this.TBoxEmail.TabIndex = 40;
+            // 
             // FrmOuvrier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.TBoxEmail);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.TBoxTauxH);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.TBoxNbrH);
@@ -203,5 +223,7 @@ namespace Entreprise.WinForm_02
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox TBoxEmail;
     }
 }

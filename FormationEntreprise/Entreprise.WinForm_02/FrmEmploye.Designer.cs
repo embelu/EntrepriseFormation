@@ -41,6 +41,8 @@ namespace Entreprise.WinForm_02
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.TBoxEmail = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // TBoxSalaire
@@ -143,11 +145,29 @@ namespace Entreprise.WinForm_02
             this.label1.TabIndex = 12;
             this.label1.Text = "Id : ";
             // 
+            // TBoxEmail
+            // 
+            this.TBoxEmail.Location = new System.Drawing.Point(260, 278);
+            this.TBoxEmail.Name = "TBoxEmail";
+            this.TBoxEmail.Size = new System.Drawing.Size(219, 22);
+            this.TBoxEmail.TabIndex = 41;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(176, 281);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(50, 17);
+            this.label7.TabIndex = 42;
+            this.label7.Text = "Email :";
+            // 
             // FrmEmploye
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.TBoxEmail);
             this.Controls.Add(this.TBoxSalaire);
             this.Controls.Add(this.TBoxAge);
             this.Controls.Add(this.TBoxPrenom);
@@ -181,5 +201,7 @@ namespace Entreprise.WinForm_02
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox TBoxEmail;
+        private System.Windows.Forms.Label label7;
     }
 }

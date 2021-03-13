@@ -11,15 +11,17 @@ namespace Entreprise
         public string Nom { get; set; }
         public string Prenom { get; set; }
         public int Age { get; set; }
+        public string Email { get; set; }
 
 
 
-        internal Travailleur(int id, string nom, string prenom, int age)
+        internal Travailleur(int id, string nom, string prenom, int age, string email)
         {
             this.Id = id;
             this.Nom = nom;
             this.Prenom = prenom;
             this.Age = age;
+            this.Email = email;
         }
 
 
