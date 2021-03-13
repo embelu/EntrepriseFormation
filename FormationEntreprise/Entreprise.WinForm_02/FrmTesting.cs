@@ -58,6 +58,20 @@ namespace Entreprise.WinForm_02
             {
                 MessageBox.Show(item.Id + " " + item.Nom + " " + item.Prenom + " " + item.Age + " " + item.Salaire());
             }
+
+
+
+            MessageBox.Show("Tri via Sort() (sur Prénom) : IComparable ");
+            // Impose d'implémenter l'Interface IComparable pour déterminer la manière de comparer 2 objets Travailleur
+            _societe.travailleurs.Sort();
+
+            foreach (var item in _societe.travailleurs)
+            {
+                MessageBox.Show(item.Id + " " + item.Nom + " " + item.Prenom + " " + item.Age + " " + item.Salaire());
+            }
         }
     }
 }
+
+
+
