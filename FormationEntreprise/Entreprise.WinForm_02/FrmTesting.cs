@@ -32,7 +32,7 @@ namespace Entreprise.WinForm_02
             _societe.AddTravailleur(7, "Vanbelle", "Laurent", 15, 700);
 
             MessageBox.Show("Contenu de la liste :");
-            foreach (var item in _societe.travailleurs)
+            foreach (Travailleur item in Societe.CreerSociete())
             {
                 MessageBox.Show(item.Id + " " + item.Nom + " " + item.Prenom + " " + item.Age + " " + item.Salaire());
             }
@@ -42,7 +42,7 @@ namespace Entreprise.WinForm_02
             TravailleurComparator.SortByAgeDesc myCompA = new TravailleurComparator.SortByAgeDesc();
             _societe.travailleurs.Sort(myCompA);
 
-            foreach (var item in _societe.travailleurs)
+            foreach (Travailleur item in Societe.CreerSociete())
             {
                 MessageBox.Show(item.Id + " " + item.Nom + " " + item.Prenom + " " + item.Age + " " + item.Salaire());
             }
@@ -53,7 +53,7 @@ namespace Entreprise.WinForm_02
             TravailleurComparator.SortByAgeAndNameDesc myCompB = new TravailleurComparator.SortByAgeAndNameDesc();
             _societe.travailleurs.Sort(myCompB);
 
-            foreach (var item in _societe.travailleurs)
+            foreach (Travailleur item in Societe.CreerSociete())
             {
                 MessageBox.Show(item.Id + " " + item.Nom + " " + item.Prenom + " " + item.Age + " " + item.Salaire());
             }
@@ -64,7 +64,7 @@ namespace Entreprise.WinForm_02
             // Impose d'implémenter l'Interface IComparable pour déterminer la manière de comparer 2 objets Travailleur
             _societe.travailleurs.Sort();
 
-            foreach (var item in _societe.travailleurs)
+            foreach (Travailleur item in Societe.CreerSociete())
             {
                 MessageBox.Show(item.Id + " " + item.Nom + " " + item.Prenom + " " + item.Age + " " + item.Salaire());
             }

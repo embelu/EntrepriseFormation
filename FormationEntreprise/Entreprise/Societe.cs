@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Entreprise
 {
-    public class Societe
+    public class Societe : IEnumerable
     {
         public string Nom { get; set; }
         public int Matricule { get; set; }
@@ -52,6 +53,38 @@ namespace Entreprise
                     Ouvrier ouvrier = (Ouvrier)item;
                     Console.WriteLine(ouvrier.ShowDetails());
                 }
+            }
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            return new SocieteEnumerator(ref travailleurs);
+        }
+
+        class SocieteEnumerator : IEnumerator
+        {
+            private List<Travailleur> TravList;
+            private int Position;
+            public object Current
+            {
+                get { return TravList[Position]; }
+            }
+
+            public SocieteEnumerator(ref List<Travailleur> myList)
+            {
+                TravList = myList;
+            }
+
+            public bool MoveNext()
+            {
+                Position++;
+                if (Position >= TravList.Count) return false;
+                return true;
+            }
+
+            public void Reset()
+            {
+                Position = -1;
             }
         }
     }

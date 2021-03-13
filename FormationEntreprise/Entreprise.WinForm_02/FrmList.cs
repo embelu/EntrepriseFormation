@@ -20,7 +20,7 @@ namespace Entreprise.WinForm_02
 
             ListView.View = View.List; // Permet de mettre les éléments les uns en dessous des autres.
 
-            foreach (var item in _societe.travailleurs)
+            foreach (Travailleur item in Societe.CreerSociete())
             {
                 ListView.Items.Add(string.Format("{00}", item.Id.ToString()) + ' ' + item.Nom + ' ' + item.Prenom + ' ' + item.Age.ToString() + ' ' + item.Salaire().ToString());
             }
