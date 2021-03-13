@@ -67,7 +67,7 @@ namespace Entreprise
             private int Position;
             public object Current
             {
-                get { return TravList[Position]; }
+                get { return TravList[Position++]; }
             }
 
             public SocieteEnumerator(ref List<Travailleur> myList)
@@ -77,7 +77,6 @@ namespace Entreprise
 
             public bool MoveNext()
             {
-                Position++;
                 if (Position >= TravList.Count) return false;
                 return true;
             }
