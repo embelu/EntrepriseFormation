@@ -69,6 +69,19 @@ namespace Entreprise.WinForm_02
             {
                 MessageBox.Show(item.Id + " " + item.Nom + " " + item.Prenom + " " + item.Age + " " + item.Salaire());
             }
+
+
+
+            MessageBox.Show("Comparaison d'objet via Override Equals ");
+            // Impose d'overrider la méthode Equals pour expliquer sur quelles zones comparer.
+            if (_societe.travailleurs[0].Equals(_societe.travailleurs[1]))
+            {
+                MessageBox.Show("Message ==");
+            }
+            else
+            {
+                MessageBox.Show("Message !=");
+            }
         }
     }
 }

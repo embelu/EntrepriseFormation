@@ -32,5 +32,24 @@ namespace Entreprise
 
             return string.Compare(this.Prenom, travailleurTemp.Prenom);
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null) return false;
+
+            // Travailleur travailleur = (Travailleur) obj;
+            Travailleur travailleur = obj as Travailleur;
+
+            if (travailleur == null) return false;
+
+            if (this.Nom == travailleur.Nom && this.Prenom == travailleur.Prenom)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            };
+        }
     }
 }
