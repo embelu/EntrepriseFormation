@@ -10,7 +10,7 @@ namespace Entreprise.console
     {
         static void Main(string[] args)
         {
-            Societe societe = new Societe();
+            Societe societe = Societe.CreerSociete();
 
             societe.Nom = "Solidaris";
             societe.Matricule = 123456;
@@ -24,6 +24,9 @@ namespace Entreprise.console
             societe.AddTravailleur(1, "Charles", "Antoine", 17, 150, 20);
 
             societe.ShowLstTravailleurs();
+
+            Societe societeSingleton = Societe.CreerSociete();
+            societeSingleton.ShowLstTravailleurs();
 
             Console.ReadKey();
         }

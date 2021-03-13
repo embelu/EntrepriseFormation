@@ -11,6 +11,19 @@ namespace Entreprise
 
         public List<Travailleur> travailleurs = new List<Travailleur>();
 
+        #region Singleton
+        private static Societe _societeSingleton;
+
+        public static Societe CreerSociete()
+        {
+            if (_societeSingleton is null)
+            {
+                _societeSingleton = new Societe();
+            }
+
+            return _societeSingleton;
+        }
+        #endregion
 
         public void AddTravailleur(int id, string nom, string prenom, int age, int fixe)
         {
