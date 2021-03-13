@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Entreprise
 {
-    public abstract class Travailleur : ITravailleur, IComparable
+    public abstract class Travailleur : ITravailleur, IComparable, IEquatable<Travailleur>
     {
         public int Id { get; set; }
         public string Nom { get; set; }
@@ -51,5 +51,31 @@ namespace Entreprise
                 return false;
             };
         }
+
+
+        // La méthode ci-dessous remplace la méthode Equals ci dessus
+        public bool Equals(Travailleur travailleur)
+        {
+            if (this.Nom == travailleur.Nom && this.Prenom == travailleur.Prenom)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            };
+        }
+
+        public static bool operator !=(Travailleur t1, Travailleur t2)
+        {
+            return t1.Equals(t2);
+        }
+
+        public static bool operator ==(Travailleur t1, Travailleur t2)
+        {
+            return t1.Equals(t2);
+        }
+
+
     }
 }

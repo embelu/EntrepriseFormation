@@ -38,7 +38,6 @@ namespace Entreprise.WinForm_02
             }
 
 
-
             MessageBox.Show("Tri via class TravailleurComparator (Age Desc) : ");
             TravailleurComparator.SortByAgeDesc myCompA = new TravailleurComparator.SortByAgeDesc();
             _societe.travailleurs.Sort(myCompA);
@@ -75,6 +74,18 @@ namespace Entreprise.WinForm_02
             MessageBox.Show("Comparaison d'objet via Override Equals ");
             // Impose d'overrider la méthode Equals pour expliquer sur quelles zones comparer.
             if (_societe.travailleurs[0].Equals(_societe.travailleurs[1]))
+            {
+                MessageBox.Show("Message ==");
+            }
+            else
+            {
+                MessageBox.Show("Message !=");
+            }
+
+
+            MessageBox.Show("Comparaison d'objet via Surcharge des Opérateurs == et != ");
+            // Impose d'overrider la méthode Equals pour expliquer sur quelles zones comparer.
+            if (_societe.travailleurs[0] == (_societe.travailleurs[1]))
             {
                 MessageBox.Show("Message ==");
             }
