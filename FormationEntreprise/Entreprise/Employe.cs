@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entreprise.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,6 +11,11 @@ namespace Entreprise
 
         internal Employe(int id, string nom, string prenom, int age, string email, int fixe) : base(id, nom, prenom, age, email)
         {
+            if (fixe > 3000)
+            {
+                throw new EmployeExceptionSalaireTropEleve($"Salaire fixe Employé trop élevé ({fixe}) pour employé id : {id}" );
+            }
+
             this.Fixe = fixe;
         }
 

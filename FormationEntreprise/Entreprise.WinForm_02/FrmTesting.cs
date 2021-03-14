@@ -1,4 +1,5 @@
 ﻿using Entreprise.Comparator;
+using Entreprise.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,13 +24,32 @@ namespace Entreprise.WinForm_02
         private void BtnTest_Click(object sender, EventArgs e)
         {
             MessageBox.Show("*** Ajout de 7 éléments dans la list Travailleur ***");
-            _societe.AddTravailleur(1, "Billen", "Nathalie", 30, "Nathalie@gmail.com", 500);
-            _societe.AddTravailleur(2, "Baens", "Ludovic", 30, "Ludovic@gmail.com,", 500);
-            _societe.AddTravailleur(3, "Aerts", "Christian", 30, "Christian@gmail.com", 500);
-            _societe.AddTravailleur(4, "Masset", "Frédéric", 25, "Frédéric@gmail.com", 1200);
-            _societe.AddTravailleur(5, "Nadin", "Pascal", 35, "Pascal@gmail.com", 1300);
-            _societe.AddTravailleur(6, "Fontana", "Pierre", 40, "Pierre@gmail.com", 1500);
-            _societe.AddTravailleur(7, "Vanbelle", "Laurent", 15, "Laurent@gmail.com", 700);
+
+
+            try
+            {
+                _societe.AddTravailleur(1, "Billen", "Nathalie", 30, "Nathalie@gmail.com", 500);
+                _societe.AddTravailleur(2, "Baens", "Ludovic", 30, "Ludovic@gmail.com,", 500);
+                _societe.AddTravailleur(3, "Aerts", "Christian", 30, "Christian@gmail.com", 500);
+                _societe.AddTravailleur(4, "Masset", "Frédéric", 25, "Frédéric@gmail.com", 1200);
+                _societe.AddTravailleur(5, "Nadin", "Pascal", 35, "Pascal@gmail.com", 1300);
+                _societe.AddTravailleur(6, "Fontana", "Pierre", 40, "Pierre@gmail.com", 1500);
+                _societe.AddTravailleur(7, "Vanbelle", "Laurent", 15, "Laurent@gmail.com", 77700);
+            }
+            catch (EmployeExceptionSalaireTropEleve exception)
+            {
+                MessageBox.Show(exception.Message);
+                return;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+                return;
+            }
+
+
+           
+
 
             MessageBox.Show("Contenu de la liste :");
             foreach (Travailleur item in Societe.CreerSociete())
