@@ -1,7 +1,9 @@
-﻿using Entreprise.Interfaces;
+﻿using Entreprise.Exceptions;
+using Entreprise.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Entreprise
 {
@@ -22,6 +24,13 @@ namespace Entreprise
             this.Prenom = prenom;
             this.Age = age;
             this.Email = email;
+
+            Match myMatch = Regex.Match(email, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+
+            if (!myMatch.Success)
+            {
+                throw new TravailleurExceptionValidationEmail("Email incorrect : " + email);
+            }
         }
 
 

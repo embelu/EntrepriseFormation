@@ -35,6 +35,24 @@ namespace Entreprise.Exceptions
         }
     }
 
+
+    public class TravailleurExceptionValidationEmail : SocieteException
+    {
+        public TravailleurExceptionValidationEmail()
+        {
+        }
+
+        public TravailleurExceptionValidationEmail(string message) : base(message)
+        {
+        }
+
+        public TravailleurExceptionValidationEmail(string message, Exception innerException) : base(message, innerException)
+        {
+        }
+    }
+
+   
+
     public class EmployeException : TravailleurException
     {
         public EmployeException()

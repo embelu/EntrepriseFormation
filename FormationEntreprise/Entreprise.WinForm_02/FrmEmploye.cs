@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entreprise.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -34,7 +35,21 @@ namespace Entreprise.WinForm_02
 
             if (string.IsNullOrEmpty(TBoxEmail.Text)) { MessageBox.Show("Email obligatoire !"); TBoxEmail.Focus(); return; };
 
-            _societe.AddTravailleur(idInt, TBoxNom.Text, TBoxPrenom.Text, ageInt, TBoxEmail.Text, salaireInt);
+            try
+            {
+                _societe.AddTravailleur(idInt, TBoxNom.Text, TBoxPrenom.Text, ageInt, TBoxEmail.Text, salaireInt);
+            }
+            catch (TravailleurExceptionValidationEmail exc)
+            {
+                MessageBox.Show(exc.Message);
+                TBoxEmail.Focus();
+                return;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            
             this.Close();
         }
 
