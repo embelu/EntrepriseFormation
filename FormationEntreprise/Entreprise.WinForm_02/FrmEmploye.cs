@@ -21,7 +21,20 @@ namespace Entreprise.WinForm_02
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            _societe.AddTravailleur(Int32.Parse(TBoxId.Text), TBoxNom.Text, TBoxPrenom.Text, Int32.Parse(TBoxAge.Text),TBoxEmail.Text, Int32.Parse(TBoxSalaire.Text));
+           
+            if (!Int32.TryParse(TBoxId.Text, out int idInt)) { MessageBox.Show("ID non numérique !"); TBoxId.Focus(); return; };
+
+            if (string.IsNullOrEmpty(TBoxNom.Text)) { MessageBox.Show("Nom obligatoire !"); TBoxNom.Focus(); return; };
+
+            if (string.IsNullOrEmpty(TBoxPrenom.Text)) { MessageBox.Show("Prénom obligatoire !"); TBoxPrenom.Focus(); return; };
+
+            if (!Int32.TryParse(TBoxAge.Text, out int ageInt)) { MessageBox.Show("Age non numérique !"); TBoxAge.Focus(); return; };
+
+            if (!Int32.TryParse(TBoxSalaire.Text, out int salaireInt)) { MessageBox.Show("Salaire non numérique !"); TBoxSalaire.Focus(); return; };
+
+            if (string.IsNullOrEmpty(TBoxEmail.Text)) { MessageBox.Show("Email obligatoire !"); TBoxEmail.Focus(); return; };
+
+            _societe.AddTravailleur(idInt, TBoxNom.Text, TBoxPrenom.Text, ageInt, TBoxEmail.Text, salaireInt);
             this.Close();
         }
 
@@ -29,5 +42,7 @@ namespace Entreprise.WinForm_02
         {
             this.Close();
         }
+
+
     }
 }
