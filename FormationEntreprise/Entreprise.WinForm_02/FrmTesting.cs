@@ -14,6 +14,8 @@ namespace Entreprise.WinForm_02
 {
     public partial class FrmTesting : Form
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         Societe _societe = Societe.CreerSociete();
 
         public FrmTesting()
@@ -23,32 +25,38 @@ namespace Entreprise.WinForm_02
 
         private void BtnTest_Click(object sender, EventArgs e)
         {
+            log.Info("Lancement des Tests...");
+
             MessageBox.Show("*** Ajout de 7 éléments dans la list Travailleur ***");
 
 
             try
             {
                 _societe.AddTravailleur(1, "Billen", "Nathalie", 30, "Nathalie@gmail.com", 500);
-                _societe.AddTravailleur(2, "Baens", "Ludovic", 30, "Ludovic@gmail.com,", 500);
+                _societe.AddTravailleur(2, "Baens", "Ludovic", 30, "Ludovic@gmail.com", 500);
                 _societe.AddTravailleur(3, "Aerts", "Christian", 30, "Christian@gmail.com", 500);
                 _societe.AddTravailleur(4, "Masset", "Frédéric", 25, "Frédéric@gmail.com", 1200);
                 _societe.AddTravailleur(5, "Nadin", "Pascal", 35, "Pascal@gmail.com", 1300);
-                _societe.AddTravailleur(6, "Fontana", "Pierre", 40, "Pierre@gmail.com", 1500);
+                _societe.AddTravailleur(6, "Fontana", "Pierre", 40, "Pierre@gmail.com,", 1500);
                 _societe.AddTravailleur(7, "Vanbelle", "Laurent", 15, "Laurent@gmail.com", 77700);
             }
             catch (EmployeExceptionSalaireTropEleve exception)
+            {          
+                MessageBox.Show(exception.Message);
+           
+            }
+            catch (TravailleurExceptionValidationEmail exception)
             {
                 MessageBox.Show(exception.Message);
-                return;
             }
             catch (Exception exception)
             {
                 MessageBox.Show(exception.Message);
-                return;
             }
 
 
-           
+            
+          
 
 
             MessageBox.Show("Contenu de la liste :");
