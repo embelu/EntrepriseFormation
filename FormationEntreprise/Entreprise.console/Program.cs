@@ -19,9 +19,9 @@ namespace Entreprise.console
 
 
 
-            societe.AddTravailleur(1, "Roland", "Thierry", 44, 2000);
+            societe.AddTravailleur(1, "Roland", "Thierry", 44,"rt@nr.be", 2000);
 
-            societe.AddTravailleur(1, "Charles", "Antoine", 17, 150, 20);
+            societe.AddTravailleur(1, "Charles", "Antoine", 17,"ca@te.be", 150, 20);
 
             societe.ShowLstTravailleurs();
 
