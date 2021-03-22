@@ -6,8 +6,12 @@ namespace Entreprise
 {
     public class Ouvrier : Travailleur
     {
-        private int NbrH { get; set; }
-        private int PrixH { get; set; }
+        public int NbrH { get; set; }
+        public int PrixH { get; set; }
+
+        internal Ouvrier() : base()
+        {
+        }
 
         internal Ouvrier(int id, string nom, string prenom, int age, string email, int nbrH, int prixH) : base(id, nom, prenom, age, email)
         {

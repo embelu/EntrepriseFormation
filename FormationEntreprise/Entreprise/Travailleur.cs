@@ -15,7 +15,9 @@ namespace Entreprise
         public int Age { get; set; }
         public string Email { get; set; }
 
-
+        internal Travailleur()
+        {
+        }
 
         internal Travailleur(int id, string nom, string prenom, int age, string email)
         {

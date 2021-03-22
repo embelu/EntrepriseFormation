@@ -45,6 +45,7 @@ namespace Entreprise.WinForm_02
             this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.TBoxEmail = new System.Windows.Forms.TextBox();
+            this.BtnLastRecord = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // TBoxTauxH
@@ -179,11 +180,22 @@ namespace Entreprise.WinForm_02
             this.TBoxEmail.Size = new System.Drawing.Size(219, 22);
             this.TBoxEmail.TabIndex = 40;
             // 
+            // BtnLastRecord
+            // 
+            this.BtnLastRecord.Location = new System.Drawing.Point(669, 35);
+            this.BtnLastRecord.Name = "BtnLastRecord";
+            this.BtnLastRecord.Size = new System.Drawing.Size(119, 42);
+            this.BtnLastRecord.TabIndex = 41;
+            this.BtnLastRecord.Text = "Dernier Record";
+            this.BtnLastRecord.UseVisualStyleBackColor = true;
+            this.BtnLastRecord.Click += new System.EventHandler(this.BtnLastRecord_Click);
+            // 
             // FrmOuvrier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.BtnLastRecord);
             this.Controls.Add(this.TBoxEmail);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.TBoxTauxH);
@@ -225,5 +237,6 @@ namespace Entreprise.WinForm_02
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox TBoxEmail;
+        private System.Windows.Forms.Button BtnLastRecord;
     }
 }

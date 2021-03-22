@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Entreprise.DTO;
+using Entreprise.FileDAL;
+using Entreprise.Mappers;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
@@ -36,8 +39,27 @@ namespace Entreprise
         {
             Ouvrier ouvrier = new Ouvrier(id, nom, prenom, age, email, nbrHeure, prixHeure);
             travailleurs.Add(ouvrier);
+
+            OuvrierMapper ouvrierMapper = new OuvrierMapper();
+            OuvrierDAL ouvrierDAL = new OuvrierDAL();
+            ouvrierDAL.SaveOuvrier(ouvrierMapper.MapToDTO(ouvrier));
+
         }
 
+        public Ouvrier ReadLastOuvrier()
+        {
+            OuvrierDAL ouvrierDAL = new OuvrierDAL();
+            OuvrierDTO ouvrierDTO = ouvrierDAL.ReadLastOuvrier();
+
+            if (ouvrierDTO != null)
+            {
+                OuvrierMapper ouvrierMapper = new OuvrierMapper();
+                return ouvrierMapper.MapFromDTO(ouvrierDTO);
+            }
+            else return null;
+        }
+
+ 
         public void ShowLstTravailleurs()
         {
             foreach (Travailleur item in travailleurs)

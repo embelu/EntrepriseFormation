@@ -58,5 +58,24 @@ namespace Entreprise.WinForm_02
         {
             this.Close();
         }
+
+        private void BtnLastRecord_Click(object sender, EventArgs e)
+        {
+            Ouvrier ouvrier =  _societe.ReadLastOuvrier();
+
+            if (ouvrier.Id == 0)
+            {
+                MessageBox.Show("Pas d'ouvrier présent dans la base de données !");
+                return;
+            }
+
+            TBoxId.Text = ouvrier.Id.ToString();
+            TBoxNom.Text = ouvrier.Nom;
+            TBoxPrenom.Text = ouvrier.Prenom;
+            TBoxAge.Text = ouvrier.Age.ToString();
+            TBoxEmail.Text = ouvrier.Email;
+            TBoxNbrH.Text = ouvrier.NbrH.ToString();
+            TBoxTauxH.Text = ouvrier.PrixH.ToString();      
+        }
     }
 }
