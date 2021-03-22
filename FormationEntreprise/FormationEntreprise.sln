@@ -13,14 +13,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entreprise.WinForm_01", "En
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entreprise.WinForm_02", "Entreprise.WinForm_02\Entreprise.WinForm_02.csproj", "{FD901E36-2667-4588-996D-1E393372A772}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entreprise.DTO", "Entreprise.DTO\Entreprise.DTO.csproj", "{952B58B6-4A3C-4EEC-9568-B701B14A4049}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entreprise.DTO", "Entreprise.DTO\Entreprise.DTO.csproj", "{952B58B6-4A3C-4EEC-9568-B701B14A4049}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entreprise.FileDAL", "Entreprise.FileDAL\Entreprise.FileDAL.csproj", "{3464C2CD-FFC0-4C8C-8152-D8EA97B14908}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entreprise.FileDAL", "Entreprise.FileDAL\Entreprise.FileDAL.csproj", "{3464C2CD-FFC0-4C8C-8152-D8EA97B14908}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{907A0F32-BB8A-4288-BA87-2189BEB28622}"
 	ProjectSection(SolutionItems) = preProject
 		OuvriersFile.txt = OuvriersFile.txt
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entreprise.DbDAL", "Entreprise.DbDAL\Entreprise.DbDAL.csproj", "{B88322B3-BCD2-42EE-9AA7-DE38D060AB6E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -56,6 +58,10 @@ Global
 		{3464C2CD-FFC0-4C8C-8152-D8EA97B14908}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3464C2CD-FFC0-4C8C-8152-D8EA97B14908}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3464C2CD-FFC0-4C8C-8152-D8EA97B14908}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B88322B3-BCD2-42EE-9AA7-DE38D060AB6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B88322B3-BCD2-42EE-9AA7-DE38D060AB6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B88322B3-BCD2-42EE-9AA7-DE38D060AB6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B88322B3-BCD2-42EE-9AA7-DE38D060AB6E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

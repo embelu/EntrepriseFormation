@@ -41,14 +41,14 @@ namespace Entreprise
             travailleurs.Add(ouvrier);
 
             OuvrierMapper ouvrierMapper = new OuvrierMapper();
-            OuvrierDAL ouvrierDAL = new OuvrierDAL();
+            Entreprise.DbDAL.OuvrierDAL ouvrierDAL = new Entreprise.DbDAL.OuvrierDAL();
             ouvrierDAL.SaveOuvrier(ouvrierMapper.MapToDTO(ouvrier));
 
         }
 
         public Ouvrier ReadLastOuvrier()
         {
-            OuvrierDAL ouvrierDAL = new OuvrierDAL();
+            Entreprise.DbDAL.OuvrierDAL ouvrierDAL = new Entreprise.DbDAL.OuvrierDAL();
             OuvrierDTO ouvrierDTO = ouvrierDAL.ReadLastOuvrier();
 
             OuvrierMapper ouvrierMapper = new OuvrierMapper();

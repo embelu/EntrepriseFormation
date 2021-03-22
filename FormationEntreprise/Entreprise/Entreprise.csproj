@@ -6,9 +6,11 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Entreprise.DbDAL\Entreprise.DbDAL.csproj" />
     <ProjectReference Include="..\Entreprise.DTO\Entreprise.DTO.csproj" />
     <ProjectReference Include="..\Entreprise.FileDAL\Entreprise.FileDAL.csproj" />
   </ItemGroup>
