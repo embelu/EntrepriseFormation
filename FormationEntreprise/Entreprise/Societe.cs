@@ -51,12 +51,10 @@ namespace Entreprise
             OuvrierDAL ouvrierDAL = new OuvrierDAL();
             OuvrierDTO ouvrierDTO = ouvrierDAL.ReadLastOuvrier();
 
-            if (ouvrierDTO != null)
-            {
-                OuvrierMapper ouvrierMapper = new OuvrierMapper();
-                return ouvrierMapper.MapFromDTO(ouvrierDTO);
-            }
-            else return null;
+            OuvrierMapper ouvrierMapper = new OuvrierMapper();
+            return ouvrierMapper.MapFromDTO(ouvrierDTO);
+
+    
         }
 
  
