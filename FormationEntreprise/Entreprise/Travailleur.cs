@@ -27,12 +27,16 @@ namespace Entreprise
             this.Age = age;
             this.Email = email;
 
-            Match myMatch = Regex.Match(email, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
-
-            if (!myMatch.Success)
+            if (email != null)
             {
-                throw new TravailleurExceptionValidationEmail("Email incorrect : " + email);
+                Match myMatch = Regex.Match(email, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+
+                if (!myMatch.Success)
+                {
+                    throw new TravailleurExceptionValidationEmail("Email incorrect : " + email);
+                }
             }
+
         }
 
 
