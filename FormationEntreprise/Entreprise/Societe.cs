@@ -35,14 +35,14 @@ namespace Entreprise
             travailleurs.Add(employe);
         }
 
-        public void AddTravailleur(int id, string nom, string prenom, int age, string email, int nbrHeure, int prixHeure)
+        public int AddTravailleur(int id, string nom, string prenom, int age, string email, int nbrHeure, int prixHeure)
         {
             Ouvrier ouvrier = new Ouvrier(id, nom, prenom, age, email, nbrHeure, prixHeure);
             travailleurs.Add(ouvrier);
 
             OuvrierMapper ouvrierMapper = new OuvrierMapper();
             Entreprise.DbDAL.OuvrierDAL ouvrierDAL = new Entreprise.DbDAL.OuvrierDAL();
-            ouvrierDAL.SaveOuvrier(ouvrierMapper.MapToDTO(ouvrier));
+            return ouvrierDAL.SaveOuvrier(ouvrierMapper.MapToDTO(ouvrier));
 
         }
 

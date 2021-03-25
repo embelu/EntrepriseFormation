@@ -69,16 +69,15 @@ namespace Entreprise.DbDAL
             return ouvrierDTO;
         }
 
-        public void SaveOuvrier(OuvrierDTO ouvrierDTO)
+        public int SaveOuvrier(OuvrierDTO ouvrierDTO)
         {
 
             SqlConnection _connection = new SqlConnection(strConnexion);
             _connection.Open();
 
-            SqlCommand cmd = new SqlCommand("INSERT INTO dbo.Ouvrier_Ludo (Id, Nom, Prenom, Age, Email, NbrH, PrixH) VALUES (@Id, @Nom, @Prenom, @Age, @Email, @NbrH, @PrixH)", _connection);
+            SqlCommand cmd = new SqlCommand("INSERT INTO dbo.Ouvrier_Ludo (Nom, Prenom, Age, Email, NbrH, PrixH) VALUES (@Nom, @Prenom, @Age, @Email, @NbrH, @PrixH);SELECT SCOPE_IDENTITY();", _connection);
 
             cmd.CommandType = CommandType.Text;
-            cmd.Parameters.AddWithValue("@Id", ouvrierDTO.Id);
             cmd.Parameters.AddWithValue("@Nom", ouvrierDTO.Nom);
             cmd.Parameters.AddWithValue("@Prenom", ouvrierDTO.Prenom);
             cmd.Parameters.AddWithValue("@Age", ouvrierDTO.Age);
@@ -86,7 +85,9 @@ namespace Entreprise.DbDAL
             cmd.Parameters.AddWithValue("@NbrH", ouvrierDTO.NbrH);
             cmd.Parameters.AddWithValue("@PrixH", ouvrierDTO.PrixH);
 
-            int rowsAffected = cmd.ExecuteNonQuery();
+            //int rowsAffected = cmd.ExecuteNonQuery(); Mis en commentaire car utilisation de l'auto-incrément dans la Db au niveau de l'ID
+
+            return (int)(decimal)cmd.ExecuteScalar(); // Utilisation pour récupérer l'auto-incrément
 
             _connection.Close();
 

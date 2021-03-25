@@ -22,7 +22,7 @@ namespace Entreprise.WinForm_02
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            if (!Int32.TryParse(TBoxId.Text, out int idInt)) { MessageBox.Show("ID non numérique !"); TBoxId.Focus(); return; };
+            //if (!Int32.TryParse(TBoxId.Text, out int idInt)) { MessageBox.Show("ID non numérique !"); TBoxId.Focus(); return; };
 
             if (string.IsNullOrEmpty(TBoxNom.Text)) { MessageBox.Show("Nom obligatoire !"); TBoxNom.Focus(); return; };
 
@@ -38,7 +38,13 @@ namespace Entreprise.WinForm_02
 
             try
             {
-                _societe.AddTravailleur(idInt, TBoxNom.Text, TBoxPrenom.Text, ageInt, TBoxEmail.Text, nbrHInt, tauxHInt);
+
+                if (string.IsNullOrEmpty(TBoxId.Text))
+                {
+                    TBoxId.Text = "0";
+                }
+
+                TBoxId.Text = _societe.AddTravailleur(Int32.Parse(TBoxId.Text), TBoxNom.Text, TBoxPrenom.Text, ageInt, TBoxEmail.Text, nbrHInt, tauxHInt).ToString();
             }
             catch (TravailleurExceptionValidationEmail exc)
             {
@@ -51,7 +57,7 @@ namespace Entreprise.WinForm_02
                 throw;
             }
 
-            this.Close();
+            //this.Close();
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
