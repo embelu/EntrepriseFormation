@@ -10,7 +10,7 @@ namespace Entreprise
 {
     public class Societe : IEnumerable
     {
-        public event EventHandler ProcessCompleted;
+        public event EventHandler<Ouvrier> ProcessCompleted;
 
         public string Nom { get; set; }
         public int Matricule { get; set; }
@@ -54,14 +54,14 @@ namespace Entreprise
             ouvrier.Id = ouvrierDAL.SaveOuvrier(ouvrierMapper.MapToDTO(ouvrier));
             travailleurs.Add(ouvrier);
 
-            OnProcessCompleted(EventArgs.Empty);
+            OnProcessCompleted(ouvrier);
             return ouvrier.Id;
         }
 
 
-        public void OnProcessCompleted(EventArgs e)
+        public void OnProcessCompleted(Ouvrier ouvrier)
         {
-            ProcessCompleted?.Invoke(this, e);
+            ProcessCompleted?.Invoke(this, ouvrier);
         }
 
 
