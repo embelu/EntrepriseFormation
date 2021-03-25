@@ -17,18 +17,15 @@ namespace Entreprise.WinForm_02
         public FrmList()
         {
             InitializeComponent();
-
-            Refresh(null, null);
-
-            
-
         }
+
+ 
 
         public void Refresh (Object sender, EventArgs e)
         {
             ListView.View = View.List; // Permet de mettre les éléments les uns en dessous des autres.
 
-            _societe.ProcessCompleted += this.Refresh;
+           
 
             ListView.Clear();
 
@@ -36,6 +33,11 @@ namespace Entreprise.WinForm_02
             {
                 ListView.Items.Add(string.Format("{00}", item.Id.ToString()) + ' ' + item.Nom + ' ' + item.Prenom + ' ' + item.Age.ToString() + ' ' + item.Salaire().ToString() + " " + item.Email);
             }
+        }
+
+        private void FrmList_Load(object sender, EventArgs e)
+        {
+            _societe.ProcessCompleted += this.Refresh;
         }
     }
 }

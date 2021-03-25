@@ -49,6 +49,7 @@ namespace Entreprise.WinForm_02
             this.Controls.Add(this.ListView);
             this.Name = "FrmList";
             this.Text = "FrmLst";
+            this.Load += new System.EventHandler(this.FrmList_Load);
             this.ResumeLayout(false);
 
         }
