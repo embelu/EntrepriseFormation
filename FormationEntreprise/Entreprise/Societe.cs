@@ -10,6 +10,8 @@ namespace Entreprise
 {
     public class Societe : IEnumerable
     {
+        public event EventHandler ProcessCompleted;
+
         public string Nom { get; set; }
         public int Matricule { get; set; }
 
@@ -37,14 +39,32 @@ namespace Entreprise
 
         public int AddTravailleur(int id, string nom, string prenom, int age, string email, int nbrHeure, int prixHeure)
         {
+
+
             Ouvrier ouvrier = new Ouvrier(id, nom, prenom, age, email, nbrHeure, prixHeure);
-            travailleurs.Add(ouvrier);
+            
 
             OuvrierMapper ouvrierMapper = new OuvrierMapper();
-            Entreprise.DbDAL.OuvrierDAL ouvrierDAL = new Entreprise.DbDAL.OuvrierDAL();
-            return ouvrierDAL.SaveOuvrier(ouvrierMapper.MapToDTO(ouvrier));
 
+            
+
+            Entreprise.DbDAL.OuvrierDAL ouvrierDAL = new Entreprise.DbDAL.OuvrierDAL();
+            
+
+            ouvrier.Id = ouvrierDAL.SaveOuvrier(ouvrierMapper.MapToDTO(ouvrier));
+            travailleurs.Add(ouvrier);
+
+            OnProcessCompleted(EventArgs.Empty);
+            return ouvrier.Id;
         }
+
+
+        public void OnProcessCompleted(EventArgs e)
+        {
+            ProcessCompleted?.Invoke(this, e);
+        }
+
+
 
         public Ouvrier ReadLastOuvrier()
         {

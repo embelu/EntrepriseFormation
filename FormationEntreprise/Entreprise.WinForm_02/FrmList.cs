@@ -18,13 +18,24 @@ namespace Entreprise.WinForm_02
         {
             InitializeComponent();
 
+            Refresh(null, null);
+
+            
+
+        }
+
+        public void Refresh (Object sender, EventArgs e)
+        {
             ListView.View = View.List; // Permet de mettre les éléments les uns en dessous des autres.
+
+            _societe.ProcessCompleted += this.Refresh;
+
+            ListView.Clear();
 
             foreach (Travailleur item in Societe.CreerSociete())
             {
                 ListView.Items.Add(string.Format("{00}", item.Id.ToString()) + ' ' + item.Nom + ' ' + item.Prenom + ' ' + item.Age.ToString() + ' ' + item.Salaire().ToString() + " " + item.Email);
             }
-
         }
     }
 }
